@@ -1,8 +1,7 @@
-package com.example.api_restful.app.persistence;
+package com.example.api_restful.app.entity;
 
 import lombok.Data;
 import org.hibernate.annotations.Entity;
-import org.hibernate.annotations.Table;
 
 import java.io.Serializable;
 

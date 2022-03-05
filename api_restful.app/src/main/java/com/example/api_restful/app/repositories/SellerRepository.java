@@ -1,6 +1,6 @@
-package com.example.api_restful.app.persistence.repositories;
+package com.example.api_restful.app.repositories;
 
-import com.example.api_restful.app.persistence.SellerEntity;
+import com.example.api_restful.app.entity.SellerEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

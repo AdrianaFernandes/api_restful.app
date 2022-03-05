@@ -2,14 +2,14 @@ package com.example.api_restful.app.controller;
 
 import com.baseproject.projectswagger.AtuacaoApi;
 import com.baseproject.projectswagger.model.ActingDTO;
-import com.example.api_restful.app.service.AtuacaoService;
+import com.example.api_restful.app.service.ActingService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class AtuacaoController implements AtuacaoApi {
+public class ActingController implements AtuacaoApi {
 
-    private AtuacaoService atuacaoService;
+    private ActingService atuacaoService;
 
     @Override
     public ResponseEntity<ActingDTO> acting(ActingDTO body) {

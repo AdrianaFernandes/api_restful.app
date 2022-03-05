@@ -5,9 +5,9 @@ import com.baseproject.projectswagger.model.SaveSellerDTO;
 import com.baseproject.projectswagger.model.SellerDTO;
 import com.baseproject.projectswagger.model.SellerIdDTO;
 
-public interface VendedorService {
+public interface SellerService {
 
-    public SaveSellerDTO postSaveSeller();
+    public void postSaveSeller(SaveSellerDTO body);
 
     public SellerDTO getSeller();
 

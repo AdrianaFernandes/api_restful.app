@@ -1,11 +1,9 @@
-package com.example.api_restful.app.persistence;
+package com.example.api_restful.app.entity;
 
 import com.baseproject.projectswagger.model.StateDTO;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import org.hibernate.annotations.Entity;
 
-import javax.validation.Valid;
 import java.io.Serializable;
 import java.util.List;
 
