@@ -1,0 +1,155 @@
+swagger: '2.0'
+info:
+  description: API Restful
+  version: 1.0.0
+  title: api_restful
+basePath: /
+tags:
+  - name: api_restful
+    description: API Restful
+    externalDocs:
+      description: Find out more
+      url: http://swagger.io
+schemes:
+  - https
+  - http
+paths:
+  /vendedor:
+    post:
+      tags:
+        - seller
+      summary: Save seller data
+      description: Save seller data
+      operationId: save
+      produces:
+        - application/json
+      consumes:
+        - application/json
+      parameters:
+        - in: body
+          name: save
+          description: Seller data to create
+          schema:
+            $ref: '#/definitions/SaveSeller'
+      responses:
+        '201':
+          description: Success
+          schema:
+            $ref: '#/definitions/SaveSeller'
+    get:
+      tags:
+        - seller
+      summary: seller
+      description: ''
+      operationId: getSeller
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: OK
+          schema:
+              $ref: '#/definitions/Seller'
+        '204':
+          description: Not Found
+  /atuacao:
+    post:
+      tags:
+        - Atuacao
+      summary: Save acting
+      description: Save acting
+      operationId: acting
+      produces:
+        - application/json
+      consumes:
+        - application/json
+      parameters:
+        - in: body
+          name: save
+          description: Seller data to create
+          schema:
+            $ref: '#/definitions/Acting'
+      responses:
+        '201':
+          description: Success
+          schema:
+            $ref: '#/definitions/Acting'
+  /vendedor/{id}:
+    get:
+      tags:
+        - seller
+      summary: seller inquiry
+      description: ''
+      operationId: getVendedorId
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          format: int64
+          type: integer
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/SellerId'
+        '204':
+          description: Not Found
+definitions:
+  SaveSeller:
+    type: object
+    properties:
+      name:
+        type: string
+      'telephones:':
+        type: string
+      age:
+        type: string
+      city:
+        type: string
+      state:
+        type: string
+      region:
+        type: string
+  Acting:
+    type: object
+    properties:
+      region:
+        type: string
+      state:
+        type: array
+        items:
+          $ref: '#/definitions/State'
+  State:
+    type: object
+    properties:
+      estados:
+        type: string
+  SellerId:
+    type: object
+    properties:
+      name:
+        type: string
+      dateIncluded:
+        type: string
+      state:
+        type: array
+        items:
+          $ref: '#/definitions/State'
+  Seller:
+    type: object
+    properties:
+      name:
+        type: string
+      'telephones:':
+        type: string
+      age:
+        type: string
+      city:
+        type: string
+      state:
+        type: string
+      states:
+        type: array
+        items:
+          $ref: '#/definitions/State'
