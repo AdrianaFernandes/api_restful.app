@@ -17,47 +17,47 @@ paths:
   /vendedor:
     post:
       tags:
-        - seller
-      summary: Save seller data
-      description: Save seller data
-      operationId: save
+        - vendedor
+      summary: Salvar dados vendedor
+      description: Salvar dados vendedor
+      operationId: salvar
       produces:
         - application/json
       consumes:
         - application/json
       parameters:
         - in: body
-          name: save
-          description: Seller data to create
+          name: salvar
+          description: Criar dados Vendedor
           schema:
-            $ref: '#/definitions/SaveSeller'
+            $ref: '#/definitions/SalvarVendedor'
       responses:
         '201':
           description: Success
           schema:
-            $ref: '#/definitions/SaveSeller'
+            $ref: '#/definitions/SalvarVendedor'
     get:
       tags:
-        - seller
-      summary: seller
+        - vendedor
+      summary: vendedor
       description: ''
-      operationId: getSeller
+      operationId: getVendedor
       produces:
         - application/json
       responses:
         '200':
           description: OK
           schema:
-              $ref: '#/definitions/Seller'
+              $ref: '#/definitions/Vendedor'
         '204':
           description: Not Found
   /atuacao:
     post:
       tags:
         - Atuacao
-      summary: Save acting
-      description: Save acting
-      operationId: acting
+      summary: salvar atuacao
+      description: salvar atuacao
+      operationId: Atuacao
       produces:
         - application/json
       consumes:
@@ -65,19 +65,19 @@ paths:
       parameters:
         - in: body
           name: save
-          description: Seller data to create
+          description: Salvar atuacao
           schema:
-            $ref: '#/definitions/Acting'
+            $ref: '#/definitions/Atuacao'
       responses:
         '201':
           description: Success
           schema:
-            $ref: '#/definitions/Acting'
+            $ref: '#/definitions/Atuacao'
   /vendedor/{id}:
     get:
       tags:
-        - seller
-      summary: seller inquiry
+        - vendedor
+      summary: vendedor id
       description: ''
       operationId: getVendedorId
       produces:
@@ -92,67 +92,67 @@ paths:
         '200':
           description: OK
           schema:
-            $ref: '#/definitions/SellerId'
+            $ref: '#/definitions/VendedorId'
         '204':
           description: Not Found
 definitions:
-  SaveSeller:
+  SalvarVendedor:
     type: object
     properties:
-      name:
+      nome:
         type: string
-      'telephones:':
+      telefone:
         type: string
-      age:
+      idade:
         type: string
-      city:
+      cidade:
         type: string
-      state:
+      estado:
         type: string
-      region:
+      regiao:
         type: string
-  Acting:
+  Atuacao:
     type: object
     properties:
-      region:
+      regiao:
         type: string
-      state:
+      estado:
         type: array
         items:
-          $ref: '#/definitions/State'
-  State:
+          $ref: '#/definitions/Estado'
+  Estado:
     type: object
     properties:
       estados:
         type: string
-  SellerId:
+  VendedorId:
     type: object
     properties:
       id:
         format: int64
         type: integer
-      name:
+      nome:
         type: string
-      dateIncluded:
+      dataInclusao:
         type: string
-      state:
+      estado:
         type: array
         items:
-          $ref: '#/definitions/State'
-  Seller:
+          $ref: '#/definitions/Estado'
+  Vendedor:
     type: object
     properties:
-      name:
+      nome:
         type: string
-      'telephones:':
+      'telefone:':
         type: string
-      age:
+      idade:
         type: string
-      city:
+      cidade:
         type: string
-      state:
+      estado:
         type: string
-      states:
+      estados:
         type: array
         items:
-          $ref: '#/definitions/State'
+          $ref: '#/definitions/Estado'
