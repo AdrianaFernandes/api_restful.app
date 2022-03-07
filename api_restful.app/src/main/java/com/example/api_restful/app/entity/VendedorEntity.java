@@ -5,13 +5,20 @@ import javax.persistence.*;
 import javax.validation.constraints.Pattern;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 
 @Data
 @Entity
-//@Table(name = "")
+@Table(name = "Vendedor")
 public class VendedorEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
+
+    @Id
+    @SequenceGenerator(name = "vendedor_seq", sequenceName = "vendedor_seq", initialValue = 1, allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "vendedor_seq")
+    @Column(name = "id_vendedor")
+    private Long id;
 
     @Column(name="nome")
     private String nome;
@@ -29,9 +36,10 @@ public class VendedorEntity implements Serializable {
     @Column(name="estado", length = 2)
     private String estado;
 
-    //    @Column
-    //    private List<StateDTO> states = null;
-//    @OneToOne
-//    private Atuacao regiao;
+    @Column(name="data_inclusao")
+    private LocalDate dataInclusao = LocalDate.now();
+
+    @Column(name="regiao")
+    private String regiao;
 
 }

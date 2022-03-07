@@ -13,6 +13,6 @@ public class AtuacaoController implements AtuacaoApi {
 
     @Override
     public ResponseEntity<AtuacaoDTO> atuacao(AtuacaoDTO body) {
-        return ResponseEntity.ok(atuacaoService.postAtuacao());
+        return AtuacaoApi.super.atuacao(body);
     }
 }

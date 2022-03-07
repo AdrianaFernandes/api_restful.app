@@ -4,9 +4,8 @@ import com.baseproject.projectswagger.VendedorApi;
 import com.baseproject.projectswagger.model.SalvarVendedorDTO;
 import com.baseproject.projectswagger.model.VendedorDTO;
 import com.baseproject.projectswagger.model.VendedorIdDTO;
-import com.example.api_restful.app.service.impl.VendedorServiceImpl;
+import com.example.api_restful.app.service.VendedorService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -14,23 +13,24 @@ import org.springframework.web.bind.annotation.RestController;
 public class VendedorController implements VendedorApi {
 
     @Autowired
-     private VendedorServiceImpl vendedorServiceImpl;
+     private VendedorService vendedorService;
 
     @Override
-    public void save(SalvarVendedorDTO body) {
-
-        ResponseEntity.status(HttpStatus.CREATED).build();
+    public ResponseEntity<Void> salvar(SalvarVendedorDTO body) {
+        vendedorService.postSalvarVendedor(body);
+        return ResponseEntity.ok().build();
     }
 
     @Override
     public ResponseEntity<VendedorDTO> getVendedor() {
-
-        return ResponseEntity.ok(vendedorServiceImpl.getVendedor());
+        return VendedorApi.super.getVendedor();
     }
 
     @Override
     public ResponseEntity<VendedorIdDTO> getVendedorId(Long id) {
-        return ResponseEntity.ok(vendedorServiceImpl.getVendedorId());
+
+        return VendedorApi.super.getVendedorId(id);
     }
+
 
 }
