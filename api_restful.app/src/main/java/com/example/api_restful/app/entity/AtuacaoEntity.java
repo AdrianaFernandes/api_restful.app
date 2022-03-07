@@ -1,9 +1,9 @@
 package com.example.api_restful.app.entity;
 
 import lombok.Data;
+
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.List;
 
 
 @Data
@@ -16,7 +16,7 @@ public class AtuacaoEntity implements Serializable {
     @Id
     @SequenceGenerator(name = "atuacao_seq", sequenceName = "atuacao_seq", initialValue = 1, allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "atuacao_seq")
-    @Column(name = "ID_ATUACAO")
+    @Column(name = "id_atuacao")
     private Long id;
 
     @Column(name="regiao")

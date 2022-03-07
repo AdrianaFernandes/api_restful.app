@@ -69,8 +69,6 @@ paths:
       responses:
         '201':
           description: Success
-          schema:
-            $ref: '#/definitions/Atuacao'
   /vendedor/{id}:
     get:
       tags:
@@ -112,6 +110,9 @@ definitions:
   Atuacao:
     type: object
     properties:
+      id:
+        format: int64
+        type: integer
       regiao:
         type: string
       estado:
